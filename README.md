@@ -20,6 +20,9 @@ The easiest way to try out volkszaehler is using Docker:
 
 which will create a database, initialize it and start volkszaehler at port 8080.
 
+To create the docker file locally on Raspi-3:
+DOCKER_DEFAULT_PLATFORM=linux/arm/v7 docker build -t volkszaehler/volkszaehler -f Dockerfile .
+
 ## Installation
 
 For local installation, run the install script from the shell:

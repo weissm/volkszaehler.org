@@ -2,7 +2,8 @@ version: '3'
 services:
 
   database:
-    image: mariadb
+#    image: mariadb
+    image: tobi312/rpi-mariadb:10.5
     environment:
       MYSQL_DATABASE: volkszaehler
       MYSQL_USER: vz
