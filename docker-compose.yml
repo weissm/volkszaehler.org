@@ -15,7 +15,7 @@ services:
   volkszaehler:
     image: volkszaehler/volkszaehler
     ports:
-    - 8080:8080
+    - 8088:8080
     # NOTE: The init command will only work once the database is fully up and running.
     #       By putting restart: always docker-compose will retry starting this container
     #       and finally complete the database setup sequence.
@@ -47,6 +47,16 @@ services:
     - database
     networks:
     - volkszaehler
+    restart: always
+
+  vzlogger:
+    image: jsurf/rpi-vzlogger:latest
+    volumes:
+      - ./vzlogger.conf:/etc/vzlogger.conf
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    networks:
+      - volkszaehler
     restart: always
 
 networks:
